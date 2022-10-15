@@ -1,17 +1,12 @@
 <script lang="ts">
-    export let index:string;
-    function catCV(){
-        // TODO Print my cv
-    }
-    function catContact(){
-        // TODO Print my cv
-    }
+    //? Example 
+    // export let index:string;
 </script>
 
 <div>
     <div class="main">
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <p on:click={update} class="file" href="/">.portfolio</p>
+        <!-- <p on:click={catCV} class="file" href="/">.portfolio</p> -->
+        <p class="file" href="/">.portfolio</p>
         <p class="file" href="/">.contact</p>
         <p><a target="_blank" href="https://github.com/Yukics">Github</a></p>
         <p><a target="_blank" href="https://es.linkedin.com/in/alejo-morell-bethencourt-95966419b">Linkedin</a></p>
@@ -28,7 +23,6 @@
         flex-wrap: wrap;
         align-items: flex-start;
         align-content: flex-start;
-        margin-top: 5%;
         font-size: 1.5em;
         min-width: 320px;
         min-height: fit-content;

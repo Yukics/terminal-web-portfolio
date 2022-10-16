@@ -84,7 +84,8 @@
         <CV/>
     {/if}
 {:else}
-    <div>
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <div on:click={() => document.getElementById("commandInput").focus()}>
         <!-- svelte-ignore a11y-autofocus -->
         <p>{ps1} <input type="text" id="commandInput" bind:value={command} autocorrect="off" autocapitalize="off" on:keydown={handleInputKeyPress} autofocus><span class="cursor">_</span></p>
     </div>

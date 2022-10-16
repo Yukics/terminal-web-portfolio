@@ -77,7 +77,7 @@
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div on:click={() => document.getElementById("commandInput").focus()}>
         <!-- svelte-ignore a11y-autofocus -->
-        <p>{ps1} <input type="text" id="commandInput" bind:value={command} on:keyup={handleInputKeyPress} autocorrect="off" autocapitalize="off" autofocus><span class="cursor">_</span></p>
+        <p>{ps1} <input type="text" id="commandInput" bind:value={command} on:keyup={handleInputKeyPress} autocorrect="off" autocapitalize="off" autocomplete="off" autofocus><span class="cursor">_</span></p>
     </div>
 {/if}
 

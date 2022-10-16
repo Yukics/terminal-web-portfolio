@@ -4,7 +4,7 @@
 <div>
     <div class="main">
         <div>
-            <h4>You might entered a wrong command, there is hint:</h4>
+            <h4>You might entered a wrong command, there is a hint:</h4>
         </div>
 
         <ul>

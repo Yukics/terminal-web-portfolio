@@ -1,11 +1,8 @@
 <script lang="ts">
-    //? Example 
-    // export let index:string;
 </script>
 
 <div>
     <div class="main">
-        <!-- <p on:click={catCV} class="file" href="/">.portfolio</p> -->
         <p class="file" href="/">.portfolio</p>
         <p class="file" href="/">.contact</p>
         <p><a target="_blank" tabindex="-1" href="https://github.com/Yukics">Github</a></p>

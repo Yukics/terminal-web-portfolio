@@ -12,13 +12,13 @@
     //* Own functions
     const ps1:string = "web-page@yuki#";
 
-    async function handleInputKeyPress(event){
+    function handleInputKeyPress(event){
         //? Manages input width 
+        command = command;
         document.getElementById("commandInput").style.width = (command.length * 0.5) + "em";
 
         //? Solves android virtual keyboard bug
-        let code = event.target.value.charAt(event.target.selectionStart - 1).charCodeAt();
-        command = command;
+        event.target.value.charAt(event.target.selectionStart - 1).charCodeAt();
 
         //? Handles keyboard input, any other input wont do nothing
         switch (event.keyCode) {
@@ -29,7 +29,6 @@
                 break;
         }
     }
-
 </script>
 
 <style>

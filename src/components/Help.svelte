@@ -25,7 +25,6 @@
         align-items: flex-start;
         align-content: flex-start;
         font-size: 1.5em;
-        /* min-height: fit-content; */
     }
     h4{
         color: rgb(161, 161, 161);

@@ -1,6 +1,4 @@
 <script lang="ts">
-    //? Example 
-    // export let index:string;
 </script>
 
 <div>

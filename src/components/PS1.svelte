@@ -12,31 +12,20 @@
     //* Own functions
     const ps1:string = "web-page@yuki#";
 
-    function handleInputKeyPress(event){
-        //? Manages default width 
-        const inputWidth: string = document.getElementById("commandInput").style.width;
-        let inputNumber: number = parseFloat(inputWidth.slice(0, -2));
-        if(inputWidth === ""){
-            inputNumber = 0;
-        }
+    async function handleInputKeyPress(event){
+        //? Manages input width 
+        document.getElementById("commandInput").style.width = (command.length * 0.5) + "em";
+
+        //? Solves android virtual keyboard bug
+        let code = event.target.value.charAt(event.target.selectionStart - 1).charCodeAt();
+        command = command;
 
         //? Handles keyboard input, any other input wont do nothing
-        switch (true) {
-            // Backspace && Delete 
-            case (event.which === 8 || event.which === 46):
-                document.getElementById("commandInput").style.width = (inputNumber - 0.5) + "em";  
-                break;
+        switch (event.keyCode) {
             // Enter
-            case (event.which === 13):
+            case 13:
                 document.getElementById("commandInput").style.width = 0 + "em";
                 enterKey();
-                break;
-            // Numbers && characters
-            case (event.which >= 48 && event.which <= 90):
-                document.getElementById("commandInput").style.width = (inputNumber + 0.5) + "em";
-                break;
-            default:
-                event.preventDefault();
                 break;
         }
     }
@@ -68,9 +57,11 @@
         font-size: 1em;
         color: inherit;
         outline: none;
-        width: 0em;
+        width: 0.1em;
     }
 </style>
+
+<svelte:window/> 
 
 {#if executedCommand !== ""}
     <div>
@@ -87,8 +78,7 @@
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div on:click={() => document.getElementById("commandInput").focus()}>
         <!-- svelte-ignore a11y-autofocus -->
-        <p>{ps1} <input type="text" id="commandInput" bind:value={command} autocorrect="off" autocapitalize="off" on:keydown={handleInputKeyPress} autofocus><span class="cursor">_</span></p>
+        <p>{ps1} <input type="text" id="commandInput" bind:value={command} on:keyup={handleInputKeyPress} autocorrect="off" autocapitalize="off" autofocus><span class="cursor">_</span></p>
     </div>
 {/if}
-
 

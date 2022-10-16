@@ -1,4 +1,9 @@
 <script lang="ts">
+    //? Output components
+    import LS from "./LS.svelte";
+    import Help from "./Help.svelte";
+    import CV from "./CV.svelte";
+
     //* Parent
     export let enterKey = () => {};
     export let command:string = "";
@@ -23,6 +28,7 @@
                 break;
             // Enter
             case (event.which === 13):
+                document.getElementById("commandInput").style.width = 0 + "em";
                 enterKey();
                 break;
             // Numbers && characters
@@ -34,10 +40,11 @@
                 break;
         }
     }
+
 </script>
 
 <style>
-    nav{
+    div{
         display: flex;
         align-items:flex-start;
         width: 100%;
@@ -66,13 +73,21 @@
 </style>
 
 {#if executedCommand !== ""}
-    <nav>
+    <div>
         <p>{`${ps1} ${executedCommand}`}</p>
-    </nav>
+    </div>
+    {#if executedCommand === "ls"}
+        <LS/>
+    {:else if executedCommand === "help"}
+        <Help/>
+    {:else if executedCommand === "cv"}
+        <CV/>
+    {/if}
 {:else}
-    <nav>
+    <div>
+        <!-- svelte-ignore a11y-autofocus -->
         <p>{ps1} <input type="text" id="commandInput" bind:value={command} autocorrect="off" autocapitalize="off" on:keydown={handleInputKeyPress} autofocus><span class="cursor">_</span></p>
-    </nav>
+    </div>
 {/if}
 
 

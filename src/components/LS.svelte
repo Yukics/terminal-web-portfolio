@@ -8,11 +8,11 @@
         <!-- <p on:click={catCV} class="file" href="/">.portfolio</p> -->
         <p class="file" href="/">.portfolio</p>
         <p class="file" href="/">.contact</p>
-        <p><a target="_blank" href="https://github.com/Yukics">Github</a></p>
-        <p><a target="_blank" href="https://es.linkedin.com/in/alejo-morell-bethencourt-95966419b">Linkedin</a></p>
-        <p><a target="_blank" href="https://yukics.wordpress.com/">Wordpress</a></p>
-        <p><a target="_blank" href="https://twitter.com/yuki_cs">Twitter</a></p>
-        <p><a target="_blank" href="https://steamcommunity.com/id/yukics">Steam</a></p>
+        <p><a target="_blank" tabindex="-1" href="https://github.com/Yukics">Github</a></p>
+        <p><a target="_blank" tabindex="-1" href="https://es.linkedin.com/in/alejo-morell-bethencourt-95966419b">Linkedin</a></p>
+        <p><a target="_blank" tabindex="-1" href="https://yukics.wordpress.com/">Wordpress</a></p>
+        <p><a target="_blank" tabindex="-1" href="https://twitter.com/yuki_cs">Twitter</a></p>
+        <p><a target="_blank" tabindex="-1" href="https://steamcommunity.com/id/yukics">Steam</a></p>
     </div>
 </div>
 

@@ -1,37 +1,45 @@
 <script lang="ts">
   import PS1 from "./components/PS1.svelte";
-  import LS from "./components/LS.svelte";
-  
-  let command:string = "";
 
-  function enterCommand(){
-    console.log(command)
-    switch(command){
-      case "ls":
-        break;
-      case "cv":
-        break;
-      case "help":
-        break;
-      default:
-        break;
+  let command:string = "";
+  let commandsThatExists:string[] = ["ls","cv","help","cls"];
+  let commandHistory:string[] = ["ls"];
+
+
+  async function enterCommand(){
+    if (commandsThatExists.includes(command)) {
+      if(command === "cls"){
+        commandHistory = [];
+      } else {
+        commandHistory.push(command);
+      }
+    } else {
+      commandHistory.push("help");
     }
+    //? Needed to tell the compiler the array has been updated: https://svelte.dev/tutorial/updating-arrays-and-objects
+    commandHistory=commandHistory;
+    
     command = "";
+
+    //! Very important, this timer is necessary to waith sveltes re-render and the go to bottom
+    await new Promise(r => setTimeout(r, 10));
+    document.getElementById('scrollEnd').scrollIntoView({behavior: 'smooth'});
   }
-  function catCV(){
-        // TODO Print my cv
-    }
-  function catContact(){
-      // TODO Print my cv
-  }
+
 </script>
 
-<body>
-  <PS1 executedCommand={"ls"}/>
-  <LS catCV={catCV()} catContact={catContact()}/>
-  <PS1 bind:command enterKey={enterCommand}/>
+<body id="body">
 
+    {#each commandHistory as prevCommand}
+    <PS1 executedCommand={prevCommand}/>
+    {/each}
+    
+    <PS1 bind:command enterKey={enterCommand}/>
+    <div id="scrollEnd"></div>
 </body>
 
 <style>
+  body{
+    scroll-behavior: smooth;
+  }
 </style>
